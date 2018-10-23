@@ -2,6 +2,8 @@
 eta.py sends a text to a cellphone number's email address. The text contains
 information on when a user should arrive at a destination.
 ETA is calculated with real time traffic conditions using mapquest.com's free api.
+
+This script requires a gmail address and a free api key from mapquest.com
 '''
 
 # get request to mapquest api
@@ -27,6 +29,7 @@ import math
 from datetime import datetime
 from datetime import timedelta
 
+# used for sys.exit
 import sys
 
 #################################################
@@ -40,6 +43,7 @@ def get_eta():
     try:
         map_resp = requests.get(URL).json()
     except requests.exceptions.ConnectionError:
+        # This is a more human readable error
         sys.exit('Unable to connect to the internet')
 
     # grab data
@@ -63,6 +67,7 @@ def form_and_send_message():
     try:
         server.login(LOGIN, pw)
     except smtplib.SMTPAuthenticationError:
+        # I prefer this error compared to the default
         sys.exit('Authenication failed: incorrect password.\nMessage not sent.')
 
     # send email message
