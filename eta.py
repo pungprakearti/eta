@@ -51,17 +51,19 @@ def get_eta():
     city_origin = map_resp['route']['locations'][0]['adminArea5']
     city_dest = map_resp['route']['locations'][1]['adminArea5']
 
+    return [eta, city_origin, city_dest]
 
-def form_and_send_message():
+
+def form_and_send_message(eta, city_origin, city_dest, pw):
     ''' Form and send an email message to the users's gmail account '''
 
     # get current time and add eta in minutes, then format
-    time = (datetime.now()+timedelta(minutes=eta)).strftime('%-I:%M%p'))
+    time = (datetime.now()+timedelta(minutes=eta)).strftime('%-I:%M%p')
 
-    message=f'\nI just got on the bus in {CITY}. My current ETA is {math.floor(eta)} minutes. I should arrive by {time}'
+    message = f'\nI just got on the bus in {city_origin}. My current ETA to {city_dest} is {math.floor(eta)} minutes. I should arrive by {time}.'
 
     # connect to gmail email server
-    server=smtplib.SMTP("smtp.gmail.com", 587)
+    server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()
 
     try:
@@ -79,21 +81,14 @@ def send_eta():
     ''' Get a password for gmail account and run functions '''
 
     # get password from command line
-    pw=getpass.getpass('password: ')
-    eta=get_eta()
-    form_and_send_message()
+    pw = getpass.getpass('password: ')
+    eta, city_origin, city_dest = get_eta()
+    form_and_send_message(eta, city_origin, city_dest, pw)
 
 
 #################################################
 # Run Script
 
-# global variables
-pw=''
-eta=0
-city_origin=''
-city_dest=''
-
-# run script
 send_eta()
 
 #################################################
