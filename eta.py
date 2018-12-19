@@ -81,6 +81,7 @@ def send_eta():
     ''' Get a password for gmail account and run functions '''
 
     # get password from command line
+    print('eta.py\n\nPlease enter your password to proceed\n')
     pw = getpass.getpass('password: ')
     eta, city_origin, city_dest = get_eta()
     form_and_send_message(eta, city_origin, city_dest, pw)
