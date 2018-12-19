@@ -1,4 +1,4 @@
-# eta
+# eta.py
 
 <p align="center">
 <img src="eta_preview.gif" alt="animated gif of fullbenchdev functionality" />
