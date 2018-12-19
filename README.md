@@ -1,5 +1,9 @@
 # eta
 
+<p align="center">
+<img src="eta_preview.gif" alt="animated gif of fullbenchdev functionality" />
+</p>
+
 eta.py sends a text to a cellphone number's email address. The text contains information on when a user should arrive at a destination. ETA is calculated with real time traffic conditions using Mapquest.com's free api.
 
 I created this script during my time at Rithm School because I have a four hour roundtrip commute on a bus. My wife would ask about my eta constantly due to us having two little rascals that she had to take care of by herself. So, when I got on the bus in San Francisco, I would turn on my laptop and run this app, which would send my wife a text with my eta.
