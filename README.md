@@ -16,3 +16,6 @@
 <br/>
 &nbsp &nbsp My start position is hard coded because I would use the bus' wifi. The bus' wifi geo location was somewhere in Marin. So, using the bus' geo location wasn't an option. My original plan was to use the geo location to send an eta on an interval based off of the distance remaining on the bus ride.
 </p>
+<p align="center">
+<img src="sam.jpeg" alt="My lovely wife." height="300px" />
+</p>
